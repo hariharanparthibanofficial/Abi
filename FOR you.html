@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Flow</title>
+    <style>
+        body {
+            background: url('pebg.jpg') no-repeat center center/cover;
+            color: rgba(239, 239, 239, 0.99);
+            font-family: 'Playball', cursive;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #noBtn {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="page1">
+        <h1>I want tell you something...!!</h1>
+        <button onclick="nextPage(2)">Yes💖
+        </button>
+        <button id="noBtn" onclick="duplicateNoButton()">No😣
+        </button>
+    </div>
+    <div id="page2" style="display:none;">
+        <h1>You have only two options</h1>
+        <button onclick="nextPage(3)">OK</button>
+        <button onclick="nextPage(3)">Press OK</button>
+    </div>
+    <div id="page3" style="display:none;">
+        <h1>You make the right choice....👀
+        </h1>
+        <button onclick="nextPage(4)">OK🕊
+        </button>
+    </div>
+    <div id="page4" style="display:none;">
+        <h1> Don't get anger for next message🫣
+        </h1>
+        <button onclick="nextPage(5)">Sure🤗
+        </button>
+    </div>
+    <div id="page5" style="display:none;">
+        <h1>~Hey ABI🎀
+        </h1>
+        <h1>I just wanted to say that
+            I am in love with you will
+             you be mine?</h1>
+        <img src="GIf.gif" alt="Romantic GIF">
+    </div>
+    <script>
+        function nextPage(pageNumber) {
+            document.querySelectorAll('div').forEach(div => div.style.display = 'none');
+            document.getElementById('page' + pageNumber).style.display = 'block';
+        }
+        function duplicateNoButton() {
+            let button = document.createElement('button');
+            button.innerText = 'No';
+            button.onclick = duplicateNoButton;
+            button.style.position = 'absolute';
+            button.style.left = Math.random() * window.innerWidth + 'px';
+            button.style.top = Math.random() * window.innerHeight + 'px';
+            document.body.appendChild(button);
+        }
+    </script>
+</body>
+</html>
